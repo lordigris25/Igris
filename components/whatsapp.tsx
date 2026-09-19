@@ -1,0 +1,1 @@
+export function WhatsApp(){return <a className="whatsapp" target="_blank" href="https://wa.me/919840400028?text=Hi%20Sri%20Mishri%20Decors%2C%20I%27d%20like%20to%20know%20more." aria-label="Chat with Sri Mishri on WhatsApp">Chat with Sri Mishri ↗</a>}
