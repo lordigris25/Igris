@@ -1,0 +1,1 @@
+The supplied, unmodified official Sri Mishri Decors logo must be kept at `public/brand/sri-mishri-logo.jpg`. The application references it at `/brand/sri-mishri-logo.jpg` in the desktop header, mobile menu, hero opening sequence, and footer. Do not substitute, redraw, or modify this logo asset.
