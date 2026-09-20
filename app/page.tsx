@@ -1,10 +1,68 @@
-import Link from 'next/link';import {products}from '@/lib/products';import {ProductCard}from '@/components/product-card';import {HomeMotion}from '@/components/home-motion';
-export default function Home(){return <main><HomeMotion/><section className="hero"><div className="hero-grain"/><div className="hero-content"><p className="eyebrow reveal">A WEDDING, TOLD THROUGH DETAILS</p><img className="hero-logo" src="/brand/sri-mishri-logo.jpg" alt="Sri Mishri Decors official logo"/><h1 className="hero-title">SRI MISHRI<br/><em>DECORS</em></h1><p className="tagline">Crafting Eternal Moments</p><Link href="/collection" className="round-link">Explore<br/>collection <b>↓</b></Link></div><div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/><span className="scroll-note">Scroll to enter <i>↓</i></span></section>
-<section className="intro reveal-section"><p className="eyebrow">THE FIRST DETAIL</p><h2>Every beautiful wedding begins with <em>traditions, emotions,</em> and countless little details.</h2><p className="lede">The details that welcome, bless, celebrate and stay with a family long after the day is over.</p></section>
-<section className="chapters reveal-section"><div className="chapter-title"><p className="eyebrow">A WEDDING, TOLD THROUGH DETAILS</p><h2>One celebration.<br/><em>Many meaningful moments.</em></h2></div>{[['THE FIRST IMPRESSION','Toran','A warm welcome at the threshold.'],['THE SACRED MOMENT','Bajot / Pitti','The rituals that make a ceremony personal.'],['THE CELEBRATION','Mala','A pair, exchanged at the heart of the day.'],['THE TRADITION','Topi','A gesture of heritage, worn with pride.']].map((x,i)=><div className="chapter" key={x[1]}><span>0{i+1}</span><div><p>{x[0]}</p><h3>{x[1]}</h3><small>{x[2]}</small></div><i>↗</i></div>)}</section>
-<section id="craft" className="craft reveal-section"><div><p className="eyebrow">CRAFTED BY HAND</p><h2>Haath ka kaam,<br/><em>held close.</em></h2><p>Every element begins with an eye for the small things: a ritual, a welcome, a moment of exchange. This is craftsmanship made for celebration.</p></div><div className="craft-art"><span>PARAMPARA</span><span>CRAFT</span><span>DETAIL</span></div></section>
-<section className="collection-strip reveal-section"><div className="section-row"><div><p className="eyebrow">THE COLLECTION</p><h2>Essentials for<br/><em>the occasion.</em></h2></div><Link className="text-link" href="/collection">View all five pieces ↗</Link></div><div className="product-rail">{products.map((p,i)=><ProductCard key={p.id} product={p} index={i}/>)}</div></section>
-<section className="statement"><p>Tradition is not simply something we preserve — it is something we <em>celebrate</em> and present in a way that feels elegant, personal, and timeless.</p></section>
-<section id="story" className="story reveal-section"><div className="story-art"><span>ETERNAL</span><span>MOMENTS</span></div><div><p className="eyebrow">OUR STORY</p><h2>Made for the<br/><em>moments around</em> the moment.</h2><p>Sri Mishri Decors was born from a love for the traditional elements that bring warmth, beauty, and meaning to Indian weddings.</p><p>From carefully designed torans and pooja thalis to varmala accessories, wedding rituals and trousseau packing, every creation is made with the belief that even the smallest element deserves to be special.</p><Link href="/collection" className="button outline">Discover the collection <b>↗</b></Link></div></section>
-<section id="custom" className="custom reveal-section"><p className="eyebrow">MADE FOR YOUR MOMENTS</p><h2>Personal stories,<br/><em>future possibilities.</em></h2><p>Selected Sri Mishri pieces may be offered with customisation in the future. Our current collection is presented exactly as shown, with no customisation available.</p><a className="button gold" href="https://wa.me/919840400028?text=Hi%20Sri%20Mishri%20Decors%2C%20I%27d%20like%20to%20know%20about%20future%20customisation.">Ask Sri Mishri <b>↗</b></a></section>
-<section className="final-cta"><p className="eyebrow">SRI MISHRI DECORS</p><h2>Crafting<br/><em>Eternal Moments.</em></h2><div><Link href="/collection" className="button gold">Shop now <b>↗</b></Link><a href="#contact" className="button outline-light">Contact us <b>↗</b></a></div></section></main>}
+import Link from 'next/link';
+import { products } from '@/lib/products';
+import { ProductCard } from '@/components/product-card';
+import { HomeMotion } from '@/components/home-motion';
+
+const moments = [
+  ['01','THE WELCOME','Toran','A doorway becomes the first chapter of the celebration.'],
+  ['02','THE RITUAL','Bajot + Pitti','The quiet details that give a ceremony its meaning.'],
+  ['03','THE EXCHANGE','Mala','Two garlands. One unforgettable moment.'],
+  ['04','THE HERITAGE','Topi','A traditional detail worn with pride.'],
+];
+
+export default function Home(){
+ return <main className="home">
+  <HomeMotion/>
+  <section className="hero">
+   <div className="hero-grid"/><div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/>
+   <div className="hero-content">
+    <div className="hero-topline"><span>EST. CHENNAI</span><span>WEDDING ESSENTIALS</span><span>01 / 05</span></div>
+    <div className="hero-mark"><img src="/brand/sri-mishri-logo.jpg" alt="Sri Mishri Decors"/></div>
+    <p className="hero-kicker">TRADITION · CRAFT · MOMENTS</p>
+    <h1><span>SRI MISHRI</span><em>DECORS</em></h1>
+    <p className="hero-tagline">Crafting Eternal Moments</p>
+    <Link href="/collection" className="hero-cta"><span>Enter the collection</span><b>↗</b></Link>
+   </div>
+   <div className="hero-footer"><span>SCROLL TO DISCOVER</span><i>↓</i></div>
+  </section>
+
+  <section className="manifesto reveal-section">
+   <div className="manifesto-index">02 — THE IDEA</div>
+   <div><p className="eyebrow">THE FIRST DETAIL</p><h2>Every beautiful wedding begins with <em>traditions, emotions,</em> and countless little details.</h2></div>
+   <p className="manifesto-note">The details that welcome, bless, celebrate and stay with a family long after the day is over.</p>
+  </section>
+
+  <section className="moments reveal-section">
+   <header><div><p className="eyebrow">A WEDDING, TOLD THROUGH DETAILS</p><h2>Four moments.<br/><em>One celebration.</em></h2></div><span>03 — RITUALS</span></header>
+   <div className="moment-list">{moments.map(([n,k,name,desc])=><Link href={name==='Bajot + Pitti'?'/collection':'/product/'+name.toLowerCase()} className="moment" key={n}><span>{n}</span><div><small>{k}</small><h3>{name}</h3><p>{desc}</p></div><b>↗</b></Link>)}</div>
+  </section>
+
+  <section className="craft reveal-section" id="craft">
+   <div className="craft-copy"><p className="eyebrow">04 — CRAFTED BY HAND</p><h2>Haath ka kaam.<br/><em>Made for moments.</em></h2><p>At Sri Mishri Decors, tradition is not simply something we preserve — it is something we celebrate and present in a way that feels elegant, personal, and timeless.</p><Link href="/collection" className="line-cta">Discover our craft <b>↗</b></Link></div>
+   <div className="craft-object"><div className="craft-ring ring-a"/><div className="craft-ring ring-b"/><div className="craft-diamond"/><span>PARAMPARA</span><small>THE TOUCH OF HAATH KA KAAM</small></div>
+  </section>
+
+  <section className="collection-home reveal-section">
+   <header><div><p className="eyebrow">05 — THE INITIAL EDIT</p><h2>Five pieces.<br/><em>A beginning.</em></h2></div><Link href="/collection" className="line-cta">View all pieces <b>↗</b></Link></header>
+   <div className="product-rail">{products.map((p,i)=><ProductCard key={p.id} product={p} index={i}/>)}</div>
+  </section>
+
+  <section className="wordscape"><div>TRADITION</div><div>CRAFT</div><div>RITUAL</div><div>COLOUR</div><div>MOMENTS</div></section>
+
+  <section className="story reveal-section" id="story">
+   <div className="story-image"><span>THE STORY</span><strong>06</strong></div>
+   <div className="story-copy"><p className="eyebrow">OUR STORY</p><h2>Born from a love for the <em>little details.</em></h2>
+    <p>Every beautiful wedding begins with traditions, emotions, and countless little details that make the celebration truly special.</p>
+    <p>Sri Mishri Decors was born from a love for those very details — the traditional elements that bring warmth, beauty, and meaning to Indian weddings.</p>
+    <p>What started with a passion for creating beautiful wedding essentials gradually became a journey of craftsmanship, creativity, and dedication.</p>
+    <p>From carefully designed torans and pooja thalis to varmala accessories, wedding rituals and trousseau packing, every creation is made with the belief that even the smallest element of a wedding deserves to be special.</p>
+    <Link href="/collection" className="line-cta">Enter Sri Mishri <b>↗</b></Link>
+   </div>
+  </section>
+
+  <section className="closing reveal-section">
+   <p className="eyebrow">07 — ETERNAL MOMENTS</p><h2>Because the smallest details<br/>can hold the <em>biggest memories.</em></h2>
+   <div><Link href="/collection" className="button gold">Shop the collection <b>↗</b></Link><a href="#contact" className="button outline-light">Talk to us <b>↗</b></a></div>
+  </section>
+ </main>
+}
